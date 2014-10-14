@@ -1,0 +1,33 @@
+What?
+-----
+
+vfs471-parse.pl is a script which has to be used with Mauro's
+parse_tcpdump_log.pl script from v4l-utils. parse_tcpdump_log.pl reads
+tcpdump-files which contain usbmon-captures done with wireshark for
+example and passes them, thanks to some patches from myself, to a
+separate perl-script where the payload analysis/re-construction
+can be done.
+
+See Mauro's announce mail:
+  http://permalink.gmane.org/gmane.comp.video.linuxtv.scm/9636
+
+How?
+----
+
+    $ git clone git://github.com/pboettch/v4l-utils.git
+    $ git clone git://github.com/pboettch/vfs471-reveng.git
+    $ cd vfs471-reveng
+    $ perl ../v4l-utils/contrib/parse_tcpdump_log.pl \
+        --frame_processor vfs471_parse.pl \
+        <tcpdump/wireshark-capture-filename>
+
+And now?
+--------
+
+Feel free to adapt/read/copy/steal anything from vfs471_parse.pl . I consider this code as PUBLIC DOMAIN.
+
+However, do not forget to contribute your findings to
+
+fprintf <fprint@lists.freedesktop.org> .
+
+
